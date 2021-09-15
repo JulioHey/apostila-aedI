@@ -3,7 +3,11 @@
 #define MAX 50
 #define VALOR_INVALIDO -1
 
+#define true 1
+#define false 0
+
 typedef int TIPOCHAVE;
+typedef int bool;
 
 typedef struct 
 {
@@ -58,13 +62,95 @@ void imprimeLista(LISTA * l)
   printf("\n");
 }
 
+bool inserirElementoListaSeq(TIPOCHAVE ch, int i, LISTA * l)
+{
+  /* Não foi possivel inserir o elemento na posicao i */
+  if (i > l->nmrElementos || i >= MAX) return false;
+  int iterador;
+  l->nmrElementos += 1;
+  
+  for (iterador = l->nmrElementos - 1; iterador >= i + 1; iterador--)
+  {
+    l->A[iterador].chave = l->A[iterador - 1].chave;
+  }
+
+  l->A[iterador].chave = ch;
+
+  return true;
+}
+
+int buscaSequencial(TIPOCHAVE ch, LISTA l)
+{
+  int iterador;
+  for (iterador = 0; iterador < l.nmrElementos; iterador++)
+  {
+    if (l.A[iterador].chave == ch) return iterador;
+  }
+  return VALOR_INVALIDO;
+}
+
+bool excluirElementoListaSeq(TIPOCHAVE ch, LISTA * l)
+{
+  int iterador = buscaSequencial(ch, *l);
+  if (iterador == VALOR_INVALIDO) return VALOR_INVALIDO;
+
+  l->nmrElementos -= 1;
+
+  for (iterador; iterador < l->nmrElementos; iterador++)
+  {
+      l->A[iterador].chave = l->A[iterador+1].chave;
+  }
+
+  return true;
+}
+
+int buscaSent(TIPOCHAVE ch, LISTA l)
+{
+  int iterador = 0;
+  l.A[l.nmrElementos].chave = ch;
+  while (l.A[iterador].chave < ch) iterador++;
+  if (iterador > l.nmrElementos - 1 || l.A[iterador].chave != ch) return VALOR_INVALIDO;
+  return iterador;
+}
+
+int buscaBin(TIPOCHAVE ch, LISTA l)
+{
+  int limiteInferior, limiteSuperior, meio;
+  limiteInferior = 0;
+  limiteSuperior = l.nmrElementos - 1;
+  while (limiteInferior <= limiteSuperior)
+  {
+    meio = ((limiteInferior + limiteSuperior) / 2);
+    if (l.A[meio].chave == ch) return meio;
+    else
+    {
+      if (l.A[meio].chave < ch) limiteInferior = meio + 1;
+      else limiteSuperior = meio - 1;
+    }
+  }
+
+  return VALOR_INVALIDO;
+}
+
 int main()
 {
   LISTA minhaLista;
 
   inicializarLista(&minhaLista);
-  int tam = tamanhoDaLista(&minhaLista);
   imprimeLista(&minhaLista);
 
-  printf("%d\n", tam);
+  inserirElementoListaSeq(1, 0, &minhaLista);
+  inserirElementoListaSeq(2, 1, &minhaLista);
+  inserirElementoListaSeq(3, 2, &minhaLista);
+  inserirElementoListaSeq(4, 3, &minhaLista);
+  
+  imprimeLista(&minhaLista);
+
+  printf("%d\n", minhaLista.nmrElementos);
+  printf("%d\n", buscaSequencial(2, minhaLista));
+  printf("%d\n", buscaSequencial(5, minhaLista));
+
+  excluirElementoListaSeq(2, &minhaLista);
+
+  imprimeLista(&minhaLista);
 }
