@@ -3,7 +3,7 @@
 
 ## Sequencial:
 - A ordem lógica coincide com a ordem física (memória);
-### Ex:
+#### Ex:
 ```c
 typedf struct {
 REGISTRO A[MAX];
@@ -24,7 +24,7 @@ int nmrElementosentos;
 
 ## Exericios da ultima aula:
 * Retornar a chave do primeiro elemento da lista;
-## Ex:
+### Ex:
 ```c
 int primeiroElemento(LISTA l)
 {
@@ -32,7 +32,7 @@ int primeiroElemento(LISTA l)
 }
 ```
 * Retornar a chave do último elemento da lista;
-## Ex:
+### Ex:
 ```c
 int ultimoElemento(LISTA l)
 {
@@ -40,7 +40,7 @@ int ultimoElemento(LISTA l)
 }
 ```
 * Retornar a chave do n-ésimo elemento da lista;
-## Ex:
+### Ex:
 ```c
 int nesimoElemento(LISTA l, int n)
 {
@@ -48,7 +48,7 @@ int nesimoElemento(LISTA l, int n)
 }
 ```
 * Destruir a lista;
-## Ex:
+### Ex:
 ```c
 void destruirLista(LISTA * l)
 {
@@ -56,7 +56,7 @@ void destruirLista(LISTA * l)
 }
 ```
 * Nesse caso a melhor saída seria definirmos um valor invalido e usarmos ele em vez do -1, no caso de lista ou n inválido;
-## Ex:
+### Ex:
 ```c
 /* Aplicando as mudanças */
 #define VALOR_INVALIDO -1
@@ -82,7 +82,7 @@ Dessa forma é mais rapido e fácil atualizarmos o valor inválido caso alguma r
 bool inserirElementoListaSeq(TIPOCHAVE ch, int i, lista * l)
 ```
 Para isso precisamos definir o nome tipo booleano, que não existe em c, podemos fazer isso dessa forma:
-### Ex:
+#### Ex:
 ```c
 typedef int bool;
 
@@ -90,7 +90,7 @@ typedef int bool;
 #define false 0
 ```
 Agora podemos usar o true e false no nosso código...
-### Ex de implementação:
+#### Ex de implementação:
 ```c
 bool inserirElementoListaSeq(TIPOCHAVE ch, int i, LISTA * l)
 {
@@ -111,7 +111,7 @@ bool inserirElementoListaSeq(TIPOCHAVE ch, int i, LISTA * l)
 ```
 * Busca sequencial
 Retorna a posição (índice) que se encontra a chave procurada;
-### Ex:
+#### Ex:
 ```c
 int buscaSequencial(TIPOCHAVE ch, LISTA l)
 {
@@ -129,7 +129,7 @@ Retorna true se a exclusão foi bem sucedida;
 /* Protótipo da função */
 bool excluirElementoListaSeq(TIPOCHAVE ch, lista * l)
 ```
-### Ex:
+#### Ex:
 ```c
 bool excluirElementoListaSeq(TIPOCHAVE ch, LISTA * l)
 {
@@ -203,7 +203,7 @@ No entanto podemos fazer melhor porque somos FODA, através da BUSCA BINARIA UAU
 * Caso a ch < n/2, escolhemos o novo valor médio da sublista que vai do indice 0 ao n/2, assim sendo n/4;
 * Isso até chegarmos a uma lista de tamanho 1;
 * Dessa forma podemos mudar a complexidade de tempo para O(log(n));
-
+#### Ex:
 ```c
 int buscaBin(TIPOCHAVE ch, LISTA l)
 {
