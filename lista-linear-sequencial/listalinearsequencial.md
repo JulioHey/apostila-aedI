@@ -76,7 +76,7 @@ int nesimoElemento(LISTA l, int n)
 Dessa forma é mais rapido e fácil atualizarmos o valor inválido caso alguma regra na composição da lista tenha mudado;
 
 ## Exercicios de agora:
-1. Inserção direta em uma posição específica - retorna true se ok, false se não;
+* Inserção direta em uma posição específica - retorna true se ok, false se não;
 ```c
 /* Protótipo da função */
 bool inserirElementoListaSeq(TIPOCHAVE ch, int i, lista * l)
@@ -201,7 +201,7 @@ No entanto podemos fazer melhor porque somos FODA, através da BUSCA BINARIA UAU
 ## Busca Binaria
 * Primeiro escolhemos o número médio na lista, assim sendo se lista tem tamanho n, escolhemos n/2;
 * Caso a ch < n/2, escolhemos o novo valor médio da sublista que vai do indice 0 ao n/2, assim sendo n/4;
-* Isso até chegarmos a uma lista de tamanho 1;
+* Isso até chegarmos a uma lista de tamanho l;
 * Dessa forma podemos mudar a complexidade de tempo para O(log(n));
 #### Ex:
 ```c
