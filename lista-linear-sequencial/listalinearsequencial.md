@@ -23,7 +23,7 @@ int nmrElementosentos;
 ## Aula 2:
 
 ## Exericios da ultima aula:
-1 . Retornar a chave do primeiro elemento da lista;
+* Retornar a chave do primeiro elemento da lista;
 ## Ex:
 ```c
 int primeiroElemento(LISTA l)
@@ -31,7 +31,7 @@ int primeiroElemento(LISTA l)
   return l.nmrElementos > 0 ? l.A[0].chave : -1;
 }
 ```
-2 . Retornar a chave do último elemento da lista;
+* Retornar a chave do último elemento da lista;
 ## Ex:
 ```c
 int ultimoElemento(LISTA l)
@@ -39,7 +39,7 @@ int ultimoElemento(LISTA l)
   return l.nmrElementos > 0 ? l.A[l.nmrElementos].chave : -1;
 }
 ```
-3 . Retornar a chave do n-ésimo elemento da lista;
+* Retornar a chave do n-ésimo elemento da lista;
 ## Ex:
 ```c
 int nesimoElemento(LISTA l, int n)
@@ -47,7 +47,7 @@ int nesimoElemento(LISTA l, int n)
   return l.nmrElementos <= n ? l.A[n-1].chave : -1;
 }
 ```
-4. Destruir a lista;
+* Destruir a lista;
 ## Ex:
 ```c
 void destruirLista(LISTA * l)
@@ -55,7 +55,7 @@ void destruirLista(LISTA * l)
   l->nrmElem = 0;
 }
 ```
-5 . Nesse caso a melhor saída seria definirmos um valor invalido e usarmos ele em vez do -1, no caso de lista ou n inválido;
+* Nesse caso a melhor saída seria definirmos um valor invalido e usarmos ele em vez do -1, no caso de lista ou n inválido;
 ## Ex:
 ```c
 /* Aplicando as mudanças */
@@ -109,7 +109,7 @@ bool inserirElementoListaSeq(TIPOCHAVE ch, int i, LISTA * l)
   }
 }
 ```
-2 . Busca sequencial
+* Busca sequencial
 Retorna a posição (índice) que se encontra a chave procurada;
 ### Ex:
 ```c
@@ -123,7 +123,7 @@ int buscaSequencial(TIPOCHAVE ch, LISTA l)
   return VALOR_INVALIDO;
 }
 ```
-3 . Exclusão de um elemento da lista
+* Exclusão de um elemento da lista
 Retorna true se a exclusão foi bem sucedida;
 ```c
 /* Protótipo da função */
