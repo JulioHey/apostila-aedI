@@ -1,4 +1,4 @@
-AED 1:
+### AED-Introdução
 - Listas Lineares:
 - Sequencial:
 - Vetores ou arrays;
@@ -10,27 +10,32 @@ AED 1:
 - Árvores Binárias de busca;
 - Árvores AVL;
 
+### Notação geral:
+Notação geral para qualquer tpo de estrutura, com suas especifidades para cada uma
+#### Ex:
+```c
+  typedef struct {
+  TIPOCHAVE chave;
+  // Outro campos;
+  } REGISTRO;
+```
 
-- Notação geral:
-- Ex:
-typedef struct {
-TIPOCHAVE chave;
-// Outro campos;
-} REGISTRO;
-
-Aqui utilizamos uma notação geral, para todos tipos de lista;
-- Sequencial:
+### Sequencial:
 - A ordem lógica coincide com a ordem física (memória);
-Ex:
+#### Ex:
+```c
 typedf struct {
 REGISTRO A[MAX];
 int nmrElementos;
 } LISTA;
+```
 
-nmrElementos é o numero de elementos dentra da lista que vai ser manipulado durante atualizações;
-MAX é o tamanho máximo do vetor;
+* nmrElementos é o numero de elementos dentra da lista que vai ser manipulado durante atualizações;
+* MAX é o tamanho máximo do vetor;
 
-Código:
+* A seguir temos o exemplo de uma implementação simples de um código em C de uma lista linear sequencial;
+#### Ex:
+```c
 #include <stdio.h>
 
 #define MAX 50
@@ -79,5 +84,6 @@ imprimeLista(&minhaLista);
 
 printf("%d\n", tam);
 }
+```
 
-Tarefinha >> Brincar com a lista
+* Tarefinha >> Brincar com a lista
