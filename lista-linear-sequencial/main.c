@@ -62,6 +62,24 @@ void imprimeLista(LISTA * l)
   printf("\n");
 }
 
+int buscaSentO(TIPOCHAVE ch, LISTA l)
+{
+  int iterador = 0;
+  l.A[l.nmrElementos].chave = ch;
+  while (l.A[iterador].chave < ch) iterador++;
+  if (l.A[iterador].chave == ch) return VALOR_INVALIDO;
+  return iterador;
+}
+
+bool inserirElementoListaOrd(TIPOCHAVE ch, LISTA * l)
+{
+  int iterador;
+  if (l->nmrElementos >= MAX) return false;
+  if (buscaSentO(ch, *l) != VALOR_INVALIDO) iterador = buscaSentO(ch, *l);
+  else return VALOR_INVALIDO;
+  inserirElementoListaSeq(ch, iterador, l);
+}
+
 bool inserirElementoListaSeq(TIPOCHAVE ch, int i, LISTA * l)
 {
   /* Não foi possivel inserir o elemento na posicao i */
@@ -141,8 +159,10 @@ int main()
 
   inserirElementoListaSeq(1, 0, &minhaLista);
   inserirElementoListaSeq(2, 1, &minhaLista);
-  inserirElementoListaSeq(3, 2, &minhaLista);
-  inserirElementoListaSeq(4, 3, &minhaLista);
+  inserirElementoListaSeq(2, 2, &minhaLista);
+  inserirElementoListaSeq(3, 3, &minhaLista);
+  inserirElementoListaSeq(4, 4, &minhaLista);
+  inserirElementoListaOrd(2, &minhaLista);
   
   imprimeLista(&minhaLista);
 
